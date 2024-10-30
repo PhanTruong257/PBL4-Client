@@ -66,7 +66,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>pbl4.client/pbl4.client.HelloApplication</mainClass>
+              <mainClass>pbl4.client/Client.Start</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>

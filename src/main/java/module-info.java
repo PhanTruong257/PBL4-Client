@@ -1,10 +1,11 @@
-module pbl4.client {
+module client {
     requires javafx.controls;
     requires javafx.fxml;
 
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
+    requires java.desktop;
 
-    opens pbl4.client to javafx.fxml;
-    exports pbl4.client;
+    opens Client to javafx.fxml;
+    exports Client;
 }

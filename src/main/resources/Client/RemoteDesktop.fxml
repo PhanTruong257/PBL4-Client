@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="388.0" prefWidth="478.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.RemoteDesktop">
+    <children>
+        <SplitPane dividerPositions="0.5" prefHeight="388.0" prefWidth="479.0">
+            <items>
+                <VBox prefHeight="160.0" prefWidth="75.0">
+                    <children>
+                        <Label prefHeight="35.0" prefWidth="252.0" text="Allow Control">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets left="12.0" />
+                            </VBox.margin></Label>
+                        <Label text="Id">
+                            <VBox.margin>
+                                <Insets left="12.0" top="12.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font size="18.0" />
+                            </font></Label>
+                        <TextField fx:id="localIp" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="194.0">
+                            <VBox.margin>
+                                <Insets left="12.0" top="4.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </TextField>
+                        <Label text="Password">
+                            <VBox.margin>
+                                <Insets left="12.0" top="12.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="localPwd" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="194.0">
+                            <VBox.margin>
+                                <Insets left="12.0" top="4.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </TextField>
+                    </children>
+                </VBox>
+                <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="266.0">
+                    <children>
+                        <Label prefHeight="35.0" prefWidth="252.0" text="Control Remote">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets left="12.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label text="Id">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets left="12.0" top="12.0" />
+                            </VBox.margin>
+                        </Label>
+                        <TextField fx:id="remoteIp" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="194.0">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets left="12.0" top="4.0" />
+                            </VBox.margin>
+                        </TextField>
+                        <Label text="Password">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets left="12.0" top="12.0" />
+                            </VBox.margin>
+                        </Label>
+                        <PasswordField fx:id="remotePwd" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="194.0">
+                            <VBox.margin>
+                                <Insets left="12.0" top="4.0" />
+                            </VBox.margin>
+                        </PasswordField>
+                        <Button fx:id="btnConnect" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#connectBtn" text="Connect">
+                            <VBox.margin>
+                                <Insets left="12.0" top="20.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Button>
+                    </children></VBox>
+            </items>
+        </SplitPane>
+    </children>
+</StackPane>

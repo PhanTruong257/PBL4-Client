@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="510.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.StartController">
+   <top>
+      <Pane prefHeight="41.0" prefWidth="600.0" style="-fx-background-color: #0064c8;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="715.0" layoutY="3.0"  text="X">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
+         </children></Pane>
+   </top>
+   <left>
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e9edf2;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="469.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="homePageButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#HomePage" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Home Page">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="remoteDesktopButton" mnemonicParsing="false" onMouseClicked="#RemotePage" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Remote Desktop">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="chatButton" mnemonicParsing="false"   prefHeight="45.0" prefWidth="351.0" style="-fx-background-color: transparent;" text="Chat">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnTransferFile" mnemonicParsing="false"  prefHeight="45.0" prefWidth="351.0" style="-fx-background-color: transparent;" text="Transfer File">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>            </children>
+            </VBox>
+         </children>
+      </Pane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="306.0" prefWidth="407.0" BorderPane.alignment="CENTER">
+         <children>
+            <StackPane fx:id="contentArea" alignment="TOP_CENTER" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <top>
+                        <Label text="This is our PBL4" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                     </top>
+                     <center>
+                        <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label layoutX="116.0" layoutY="14.0" text="Remote Desktop Application">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="208.0" layoutY="79.0" text="Team Member:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="169.0" layoutY="116.0" text="Nguyễn Văn Trường Sơn">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="185.0" layoutY="155.0" text="Nguyễn Thúc Hoàng">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </center>
+                  </BorderPane>
+               </children></StackPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

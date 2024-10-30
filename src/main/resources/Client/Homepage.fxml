@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="306.0" prefWidth="407.0" BorderPane.alignment="CENTER">
+    <children>
+        <StackPane  alignment="TOP_CENTER" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <BorderPane prefHeight="200.0" prefWidth="200.0">
+                    <top>
+                        <Label text="This is our PBL4" BorderPane.alignment="CENTER">
+                            <font>
+                                <Font size="36.0" />
+                            </font>
+                        </Label>
+                    </top>
+                    <center>
+                        <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <Label layoutX="116.0" layoutY="14.0" text="Remote Desktop Application">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="208.0" layoutY="79.0" text="Team Member:">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="169.0" layoutY="116.0" text="Nguyễn Văn Trường Sơn">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="185.0" layoutY="155.0" text="Nguyễn Thúc Hoàng">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </Pane>
+                    </center>
+                </BorderPane>
+            </children></StackPane>
+    </children>
+</AnchorPane>
