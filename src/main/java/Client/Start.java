@@ -42,6 +42,7 @@ public class Start extends Application {
                     Thread.sleep(1000); //after 1 second trying to connect
                 }catch (InterruptedException ee){
                     ee.printStackTrace();
+                    //Test commit
                 }
             }
         }
