@@ -44,7 +44,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="chatButton" mnemonicParsing="false"   prefHeight="45.0" prefWidth="351.0" style="-fx-background-color: transparent;" text="Chat">
+                  <Button fx:id="chatButton" mnemonicParsing="false" onMouseClicked="#ChatPage"  prefHeight="45.0" prefWidth="351.0" style="-fx-background-color: transparent;" text="Chat">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -90,12 +90,12 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="169.0" layoutY="116.0" text="Nguyễn Văn Trường Sơn">
+                              <Label layoutX="169.0" layoutY="116.0" text="Phan Văn Trường">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="185.0" layoutY="155.0" text="Nguyễn Thúc Hoàng">
+                              <Label layoutX="185.0" layoutY="155.0" text="Hồ Đăng Minh Đức">
                                  <font>
                                     <Font size="18.0" />
                                  </font>

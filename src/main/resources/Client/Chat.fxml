@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Client.ChatViewController" prefHeight="508.0" prefWidth="545.0">
+    <children>
+        <Label fx:id="labelYourID" layoutX="14.0" layoutY="19.0" prefHeight="17.0" prefWidth="54.0" text="Your ID:" />
+        <TextField fx:id="tfYourID" editable="false" layoutX="60.0" layoutY="15.0" prefHeight="25.0" prefWidth="116.0" promptText="Your ID" />
+        <Label fx:id="labelPartnerID" layoutX="184.0" layoutY="19.0" prefHeight="17.0" prefWidth="65.0" text="Partner ID:" />
+        <TextField fx:id="tfPartnerID" editable="true" layoutX="249.0" layoutY="15.0" prefHeight="25.0" prefWidth="103.0" />
+        <Button fx:id="btnConnect" layoutX="363.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#onClickConnect" prefHeight="25.0" prefWidth="80.0" text="Connect" />
+        <Button fx:id="button_send" layoutX="412.0" layoutY="435.0" prefHeight="25.0" prefWidth="81.0" text="Send">
+
+
+        </Button>
+        <TextField fx:id="tf_message" layoutX="21.0" layoutY="435.0" prefHeight="26" prefWidth="361" />
+        <ScrollPane fx:id="sp_main" fitToWidth="true" layoutX="21.0" layoutY="53.0" prefHeight="365.0" prefWidth="496.0">
+            <content>
+                <VBox fx:id="vbox_messages" prefHeight="361.0" prefWidth="493.0">
+
+
+                </VBox>
+            </content>
+        </ScrollPane>
+        <Button fx:id="btnCloseConnect" layoutX="453.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#onClickCloseConnect" prefHeight="25.0" prefWidth="73.0" text="Close" />
+
+    </children>
+
+</AnchorPane>
