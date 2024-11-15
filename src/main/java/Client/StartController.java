@@ -33,15 +33,7 @@ public class StartController implements Initializable {
 
     private FXMLLoader remoteLoader = new FXMLLoader(getClass().getResource("RemoteDesktop.fxml"));
 
-
-
-
-
-
-
-
     public StackPane contentArea;
-
 
     public void  setClientSocket(Socket clientSocket, DataInputStream in, DataOutputStream out, Sub_server sub_server) {
         this.sub_server = sub_server;
@@ -106,7 +98,7 @@ public class StartController implements Initializable {
     public void HomePage(MouseEvent mouseEvent) {
 
 
-        loader = new FXMLLoader(getClass().getResource("Homepage.fxml"));
+        loader = new FXMLLoader(getClass().getResource("StartWindow.fxml"));
         content = null;
         try {
             content = loader.load();
