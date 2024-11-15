@@ -19,8 +19,8 @@ public class Start extends Application {
     public void start(Stage stage) throws IOException {
 
 
-        String ip ="192.168.81.139" ;
-        int port = 2507;
+        String ip ="192.168.33.4" ;
+        int port = 2510;
         int checkWait =   10;
 
         boolean connect = false;
@@ -29,19 +29,24 @@ public class Start extends Application {
         DataOutputStream out = null;
 
         for(int i = 1 ; i <= checkWait; i++){
+
             try{
+
                 client = new Socket(ip,port);
                 System.out.println("Connected...");
                 in = new DataInputStream(client.getInputStream());
                 out = new DataOutputStream(client.getOutputStream());
                 connect = true;
+
                 break; // after connected, exit loop
             } catch (Exception e) {
                 System.out.println(i+ " Connect failed");
+
                 try{
                     Thread.sleep(1000); //after 1 second trying to connect
                 }catch (InterruptedException ee){
                     ee.printStackTrace();
+                    //Test commit
                 }
             }
         }

@@ -14,7 +14,7 @@
    <top>
       <Pane prefHeight="41.0" prefWidth="600.0" style="-fx-background-color: #0064c8;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="715.0" layoutY="3.0" text="X">
+            <Label layoutX="715.0" layoutY="3.0"  text="X">
                <font>
                   <Font size="24.0" />
                </font>
@@ -44,7 +44,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="chatButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="351.0" style="-fx-background-color: transparent;" text="Chat">
+                  <Button fx:id="chatButton" mnemonicParsing="false" onMouseClicked="#ChatPage"  prefHeight="45.0" prefWidth="351.0" style="-fx-background-color: transparent;" text="Chat">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -52,7 +52,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnTransferFile" mnemonicParsing="false" prefHeight="45.0" prefWidth="351.0" style="-fx-background-color: transparent;" text="Transfer File">
+                  <Button fx:id="btnTransferFile" mnemonicParsing="false"  prefHeight="45.0" prefWidth="351.0" style="-fx-background-color: transparent;" text="Transfer File">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -90,7 +90,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="185.0" layoutY="106.0" text="Phan Văn Trường">
+                              <Label layoutX="169.0" layoutY="116.0" text="Phan Văn Trường">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
