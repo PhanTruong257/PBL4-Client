@@ -181,6 +181,22 @@ public class ChatViewController implements Initializable {
                         }
                     }
                 });
+                tf_message.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent actionEvent)  {
+                        try{
+                            String message;
+                            message = tf_message.getText();
+                            dataOutputStream.writeUTF(message);
+                            addLabelSend(message,vbox_messages);
+                            tf_message.setText("");
+                            dataOutputStream.flush();
+                        }catch(IOException e){
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
             });
             receiverThread = new Thread(()->{
                try {

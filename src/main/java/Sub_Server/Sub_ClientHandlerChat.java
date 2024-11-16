@@ -76,6 +76,21 @@ public class Sub_ClientHandlerChat extends Thread {
                           }
                        }
                    });
+                    tf_message.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent actionEvent) {
+                            try{
+                                String message;
+                                message= tf_message.getText();
+                                out.writeUTF(message);
+                                chatViewController.addLabelSend(message,vbox_message);
+                                tf_message.setText("");
+                                out.flush();
+                            }catch(IOException e){
+                                e.printStackTrace();
+                            }
+                        }
+                    });
                     btnCloseConnect.setOnAction(new EventHandler<ActionEvent>(){
                         @Override
                         public void handle(ActionEvent actionEvent) {
@@ -95,26 +110,29 @@ public class Sub_ClientHandlerChat extends Thread {
 
                 });
 
-
-                //Luồng Nhận tin nhắn
-                try{
-                    String message;
-                    while(true){
-                        message= in.readUTF();
-                        if(message.equals("Connect is closed by partner")){
-                            in.close();
-                            out.close();
-                            clientSocket.close();
-                            showErrorAlert("Alert","Connect is closed by partner!");
-                            clearChatView();
-                        }else {
-                            System.out.println(message);
-                            this.chatViewController.addLabelReceive(message,vbox_message);
+                    //Luồng Nhận tin nhắn
+                Thread receiverThread= new Thread(()-> {
+                        try {
+                            String message;
+                            while (true) {
+                                message = in.readUTF();
+                                if (message.equals("Connect is closed by partner")) {
+                                    in.close();
+                                    out.close();
+                                    clientSocket.close();
+                                    showErrorAlert("Alert", "Connect is closed by partner!");
+                                    clearChatView();
+                                } else {
+                                    System.out.println(message);
+                                    this.chatViewController.addLabelReceive(message, vbox_message);
+                                }
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
-                    }
-                }catch(IOException e){
-                    e.printStackTrace();
-                }
+                });
+                senderThread.start();
+                receiverThread.start();
             }
         }catch(IOException e){
         e.printStackTrace();
