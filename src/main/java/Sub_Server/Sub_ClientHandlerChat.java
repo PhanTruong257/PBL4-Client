@@ -36,7 +36,9 @@ public class Sub_ClientHandlerChat extends Thread {
     private Button button_send;
     @FXML
     private Button btnCloseConnect;
-    public Sub_ClientHandlerChat(ChatViewController chatViewController, VBox vbox_message, Button button_send, TextField tf_message, Button btnCloseConnect ){
+    @FXML
+    private TextField tfPartnerID;
+    public Sub_ClientHandlerChat(ChatViewController chatViewController, VBox vbox_message, Button button_send, TextField tf_message, Button btnCloseConnect,TextField tfPartnerID ){
 
         this.chatViewController= chatViewController;
 
@@ -44,6 +46,7 @@ public class Sub_ClientHandlerChat extends Thread {
         this.button_send= button_send;
         this.tf_message= tf_message;
         this.btnCloseConnect= btnCloseConnect;
+        this.tfPartnerID= tfPartnerID;
     }
     @Override
     public void run() {
@@ -56,6 +59,16 @@ public class Sub_ClientHandlerChat extends Thread {
             while (true) {
                 clientSocket = server.accept();
                 System.out.println("accept");
+
+
+                //Lấy IP của client
+                String clientAddress= clientSocket.getInetAddress().getHostAddress();
+                //Thông báo có client kết nối đến
+                showErrorAlert("Thông báo", clientAddress +" đã kết nối đến");
+                Platform.runLater(()->{
+                    tfPartnerID.setText(clientAddress);
+                });
+
                 DataOutputStream out = new DataOutputStream(clientSocket.getOutputStream());
                 DataInputStream in = new DataInputStream(clientSocket.getInputStream());
 

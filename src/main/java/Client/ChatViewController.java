@@ -164,6 +164,22 @@ public class ChatViewController implements Initializable {
             if (receiverThread != null && receiverThread.isAlive()) {
                 senderThread.interrupt();
             }
+
+
+            // Thêm thông báo trực tiếp vào VBox
+            Platform.runLater(() -> {
+                HBox hBox = new HBox();
+                hBox.setAlignment(Pos.CENTER);
+                hBox.setPadding(new Insets(10, 10, 10, 10));
+
+                Label successLabel = new Label("Đã kết nối thành công đến partner " + partnerID);
+                successLabel.setStyle("-fx-font-size: 14px; -fx-text-fill: green;");
+
+                hBox.getChildren().add(successLabel);
+                vbox_messages.getChildren().add(hBox);
+            });
+
+
             senderThread = new Thread(() -> {
                 button_send.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
@@ -262,12 +278,12 @@ public class ChatViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        new Sub_ClientHandlerChat(this,vbox_messages,button_send,tf_message,btnConnect).start();
+        new Sub_ClientHandlerChat(this,vbox_messages,button_send,tf_message,btnConnect,tfPartnerID).start();
         System.out.println("Khởi tạo");
 
         if(!subClientHandlerChatCreated){
             System.out.println("Khởi tạo");
-            new Sub_ClientHandlerChat(this, vbox_messages, button_send, tf_message,btnCloseConnect).start();
+            new Sub_ClientHandlerChat(this, vbox_messages, button_send, tf_message,btnCloseConnect,tfPartnerID).start();
             subClientHandlerChatCreated = true;
         }
 
