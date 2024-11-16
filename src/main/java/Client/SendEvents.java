@@ -83,7 +83,6 @@ public class SendEvents {
             } else if (button == MouseButton.SECONDARY) {
                 xButton = Commands.RELEASE_MOUSE_SECONDARY.getAbbrev();
             }
-
             writer.println(xButton);
             writer.flush();
         });
