@@ -52,7 +52,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnTransferFile" mnemonicParsing="false"  prefHeight="45.0" prefWidth="351.0" style="-fx-background-color: transparent;" text="Transfer File">
+                  <Button fx:id="btnTransferFile" mnemonicParsing="false" onMouseClicked="#TransferPage"  prefHeight="45.0" prefWidth="351.0" style="-fx-background-color: transparent;" text="Transfer File">
                      <font>
                         <Font size="16.0" />
                      </font>

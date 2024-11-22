@@ -29,19 +29,17 @@ public class StartController implements Initializable {
 
     private ChatViewController controllerChat = null;
 
+    private TransferFileController controllerFile= null;
 
 
     private Node content;
     private FXMLLoader loader;
     private Node remoteContent;
     private Node chatContent;
+    private Node fileContent;
     private FXMLLoader remoteLoader = new FXMLLoader(getClass().getResource("RemoteDesktop.fxml"));
     private FXMLLoader chatLoader   = new FXMLLoader(getClass().getResource("Chat.fxml"));
-
-
-
-
-
+    private FXMLLoader fileLoader  =  new FXMLLoader(getClass().getResource("TransferFile.fxml"));
 
 
     public StackPane contentArea;
@@ -60,6 +58,7 @@ public class StartController implements Initializable {
         try {
             remoteContent = remoteLoader.load();
             chatContent = chatLoader.load();
+            fileContent = fileLoader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -90,7 +89,7 @@ public class StartController implements Initializable {
     }
 
     public void ChatPage(MouseEvent mouseEvent){
-        System.out.println("hú hú");
+
         loader= chatLoader;
         content= chatContent;
         contentArea.getChildren().setAll(content);
@@ -98,10 +97,13 @@ public class StartController implements Initializable {
         controllerChat.setValue();
     }
 
-
-
-
-
+    public void TransferPage(MouseEvent mouseEvent){
+        loader= fileLoader;
+        content= fileContent;
+        contentArea.getChildren().setAll(content);
+        if(controllerFile == null) controllerFile = loader.getController();
+        controllerFile.setValue();
+    }
 
 
     public String randomNumber() {
@@ -111,7 +113,6 @@ public class StartController implements Initializable {
 
         return String.valueOf(randomNumber);
     }
-
 
 
 
