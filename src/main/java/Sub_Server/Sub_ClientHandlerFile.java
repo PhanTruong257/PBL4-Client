@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -25,6 +26,8 @@ import java.net.Socket;
 
 public class Sub_ClientHandlerFile extends Thread {
 
+    @FXML
+    private TextField tfPartnerID;
     @FXML
     private TextArea taYourPartner;
     @FXML
@@ -49,8 +52,10 @@ public class Sub_ClientHandlerFile extends Thread {
     private ServerSocket server;
 
 
-    public Sub_ClientHandlerFile(TransferFileController transferFileController, TextArea taYourPartner,Button btnFastDownload,Button btnOpenFile,TextArea taYourFile,Button btnOpenFolder,VBox vBoxDownload,VBox vBoxSend,Button btnCloseConnect) {
+    public Sub_ClientHandlerFile(TransferFileController transferFileController, TextField tfPartnerID , TextArea taYourPartner, Button btnFastDownload, Button btnOpenFile, TextArea taYourFile, Button btnOpenFolder, VBox vBoxDownload, VBox vBoxSend, Button btnCloseConnect) {
         this.transferFileController = transferFileController;
+
+        this.tfPartnerID= tfPartnerID;
         this.taYourPartner = taYourPartner;
         this.btnFastDownload = btnFastDownload;
         this.btnOpenFile = btnOpenFile;
@@ -73,7 +78,16 @@ public class Sub_ClientHandlerFile extends Thread {
             {
                 clientSocket = server.accept();
                 System.out.println("Truyền File được rồi");
-                showErrorAlert("Bạn có thông báo mới","Đã có người kết nối đến bạn");
+
+                //Lấy IP của client
+                String clientAddress= clientSocket.getInetAddress().getHostAddress();
+                //Thông báo có client kết nối đến
+                showErrorAlert("Thông báo", clientAddress +" đã kết nối đến");
+                Platform.runLater(()->{
+                    tfPartnerID.setText(clientAddress);
+                });
+
+
                 Thread senderThread = new Thread(() -> {
                     btnOpenFile.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
@@ -132,17 +146,24 @@ public class Sub_ClientHandlerFile extends Thread {
         });
     }
     private void showErrorAlert(String title, String header) {
-        Stage dialogStage = new Stage();
-        dialogStage.initStyle(StageStyle.UTILITY);
-        dialogStage.initModality(Modality.APPLICATION_MODAL);
-        Label label = new Label(header);
-        label.setWrapText(true);
-        StackPane root = new StackPane();
-        root.getChildren().add(label);
-        Scene scene = new Scene(root, 300, 100);
-        dialogStage.setTitle(title);
-        dialogStage.setScene(scene);
-        dialogStage.showAndWait();
+        Platform.runLater(() -> {
+            Stage dialogStage = new Stage();
+            dialogStage.initStyle(StageStyle.UTILITY);
+            dialogStage.initModality(Modality.APPLICATION_MODAL);
+
+            Label label = new Label(header);
+            label.setWrapText(true);
+
+            StackPane root = new StackPane();
+            root.getChildren().add(label);
+
+            Scene scene = new Scene(root, 300, 100);
+
+            dialogStage.setTitle(title);
+            dialogStage.setScene(scene);
+
+            dialogStage.showAndWait();
+        });
     }
 
 }

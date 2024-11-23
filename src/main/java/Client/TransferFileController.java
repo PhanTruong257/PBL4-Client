@@ -184,9 +184,9 @@ public class TransferFileController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        new Sub_ClientHandlerFile(this,taYourPartner,btnFastDownload,btnOpenFile,taYourFile,btnOpenFolder,vBoxDownload,vBoxSend,btnCloseConnect).start();
+        new Sub_ClientHandlerFile(this,tfPartnerID,taYourPartner,btnFastDownload,btnOpenFile,taYourFile,btnOpenFolder,vBoxDownload,vBoxSend,btnCloseConnect).start();
         if (!subClientHandlerTransferFileCreated) {
-            new Sub_ClientHandlerFile(this,taYourPartner,btnFastDownload,btnOpenFile,taYourFile,btnOpenFolder,vBoxDownload,vBoxSend,btnCloseConnect).start();
+            new Sub_ClientHandlerFile(this,tfPartnerID,taYourPartner,btnFastDownload,btnOpenFile,taYourFile,btnOpenFolder,vBoxDownload,vBoxSend,btnCloseConnect).start();
             subClientHandlerTransferFileCreated = true;
         }
     }
