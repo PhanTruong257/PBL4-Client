@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 
 import java.io.DataInputStream;
@@ -119,7 +120,7 @@ public class StartController implements Initializable {
     public void HomePage(MouseEvent mouseEvent) {
 
 
-        loader = new FXMLLoader(getClass().getResource("Homepage.fxml"));
+        loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
         content = null;
         try {
             content = loader.load();
@@ -127,8 +128,22 @@ public class StartController implements Initializable {
             throw new RuntimeException(e);
         }
         contentArea.getChildren().setAll(content);
+    }
+    public void ExitButton(MouseEvent mouseEvent) {
 
-
+        try {
+            if (clientSocket != null && !clientSocket.isClosed()) {
+                clientSocket.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.exit(0);
+    }
+    public void MinimizeButton(MouseEvent mouseEvent) {
+        // Thu nhỏ cửa sổ
+        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        stage.setIconified(true); // Thu nhỏ cửa sổ
     }
 }
 

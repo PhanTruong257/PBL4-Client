@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="390.0" prefWidth="590.0" spacing="20.0">
+         <children>
+            <Label style="-fx-font-size: 20px; -fx-text-fill: #333;" text="Welcome to Remote Desktop Application" />
+            <Label style="-fx-font-size: 16px; -fx-text-fill: #555;" text="Team Members:" />
+            <VBox alignment="CENTER" spacing="5.0">
+               <children>
+                  <Label style="-fx-font-size: 14px; -fx-text-fill: #666;" text="Phan Văn Trường" />
+                  <Label style="-fx-font-size: 14px; -fx-text-fill: #666;" text="Hồ Đăng Minh Đức" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

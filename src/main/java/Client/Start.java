@@ -19,8 +19,8 @@ public class Start extends Application {
     public void start(Stage stage) throws IOException {
 
 
-        String ip ="192.168.33.4" ;
-        int port = 2510;
+        String ip ="192.168.146.186" ;
+        int port = 2507;
         int checkWait =   10;
 
         boolean connect = false;

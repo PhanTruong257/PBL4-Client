@@ -10,101 +10,80 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="510.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.StartController">
+<BorderPane prefHeight="510.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.StartController">
+   <!-- Thanh trên cùng -->
    <top>
-      <Pane prefHeight="41.0" prefWidth="600.0" style="-fx-background-color: #0064c8;" BorderPane.alignment="CENTER">
+      <Pane onMouseClicked="#MinimizeButton" prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #0a84ff;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="715.0" layoutY="3.0"  text="X">
-               <font>
-                  <Font size="24.0" />
-               </font>
+            <Label layoutX="763.0" layoutY="11.0" onMouseClicked="#ExitButton" style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;" text="X">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Label>
-         </children></Pane>
-   </top>
-   <left>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e9edf2;" BorderPane.alignment="CENTER">
-         <children>
-            <VBox prefHeight="469.0" prefWidth="200.0">
-               <children>
-                  <Button fx:id="homePageButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#HomePage" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Home Page">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="remoteDesktopButton" mnemonicParsing="false" onMouseClicked="#RemotePage" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Remote Desktop">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="chatButton" mnemonicParsing="false" onMouseClicked="#ChatPage"  prefHeight="45.0" prefWidth="351.0" style="-fx-background-color: transparent;" text="Chat">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="btnTransferFile" mnemonicParsing="false" onMouseClicked="#TransferPage"  prefHeight="45.0" prefWidth="351.0" style="-fx-background-color: transparent;" text="Transfer File">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>            </children>
-            </VBox>
+               </cursor>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="727.0" layoutY="11.0" onMouseClicked="#MinimizeButton" prefHeight="20.0" prefWidth="29.0" style="-fx-text-fill: white; -fx-font-size: 25px;" text="-">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="12.0" style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" text="Remote Desktop - PBL4" />
          </children>
       </Pane>
-   </left>
-   <center>
-      <AnchorPane prefHeight="306.0" prefWidth="407.0" BorderPane.alignment="CENTER">
+   </top>
+
+   <!-- Thanh bên trái -->
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="510.0" prefWidth="200.0" spacing="10" style="-fx-background-color: #f3f6f9;">
          <children>
-            <StackPane fx:id="contentArea" alignment="TOP_CENTER" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Button fx:id="homePageButton" mnemonicParsing="false" onMouseClicked="#HomePage" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: white; -fx-border-color: #dcdfe4; -fx-border-radius: 5;" text="Home Page">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="remoteDesktopButton" mnemonicParsing="false" onMouseClicked="#RemotePage" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: white; -fx-border-color: #dcdfe4; -fx-border-radius: 5;" text="Remote Desktop">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="chatButton" mnemonicParsing="false" onMouseClicked="#ChatPage" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: white; -fx-border-color: #dcdfe4; -fx-border-radius: 5;" text="Chat">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnTransferFile" mnemonicParsing="false" onMouseClicked="#TransferPage" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: white; -fx-border-color: #dcdfe4; -fx-border-radius: 5;" text="Transfer File">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+
+   <!-- Nội dung chính -->
+   <center>
+      <AnchorPane prefHeight="460.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <StackPane fx:id="contentArea" alignment="CENTER" prefHeight="460.0" prefWidth="600.0" style="-fx-background-color: #ffffff; -fx-border-color: #e0e4e8; -fx-border-width: 1; -fx-border-radius: 5;">
                <children>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0">
-                     <top>
-                        <Label text="This is our PBL4" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="36.0" />
-                           </font>
-                        </Label>
-                     </top>
-                     <center>
-                        <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <VBox alignment="CENTER" spacing="20.0">
+                     <children>
+                        <Label style="-fx-font-size: 20px; -fx-text-fill: #333;" text="Welcome to Remote Desktop Application" />
+                        <Label style="-fx-font-size: 16px; -fx-text-fill: #555;" text="Team Members:" />
+                        <VBox alignment="CENTER" spacing="5.0">
                            <children>
-                              <Label layoutX="116.0" layoutY="14.0" text="Remote Desktop Application">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="208.0" layoutY="79.0" text="Team Member:">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="169.0" layoutY="116.0" text="Phan Văn Trường">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="185.0" layoutY="155.0" text="Hồ Đăng Minh Đức">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
+                              <Label style="-fx-font-size: 14px; -fx-text-fill: #666;" text="Phan Văn Trường" />
+                              <Label style="-fx-font-size: 14px; -fx-text-fill: #666;" text="Hồ Đăng Minh Đức" />
                            </children>
-                        </Pane>
-                     </center>
-                  </BorderPane>
-               </children></StackPane>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
          </children>
       </AnchorPane>
    </center>
