@@ -23,9 +23,7 @@ public class SendScreen {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 ImageIO.write(screenCapture,"jpg",byteArrayOutputStream);
                 byte [] imageBytes = byteArrayOutputStream.toByteArray();
-
                 //send image length as metadata
-
                 int imageLength = imageBytes.length;
                 OutputStream out = socket.getOutputStream();
                 out.write(ByteBuffer.allocate(4).putInt(imageLength).array());

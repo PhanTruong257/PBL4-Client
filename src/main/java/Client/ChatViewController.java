@@ -96,6 +96,7 @@ public class ChatViewController implements Initializable {
         textFlow.setPadding(new Insets(5,10,5,10));
         hBox.getChildren().add(textFlow);
 
+
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -103,7 +104,6 @@ public class ChatViewController implements Initializable {
                 vBox.getChildren().add(hBox);
             }
         });
-
     }
     public static void addLabelReceive(String msgFromClient, VBox vBox){
         LocalDateTime currentDateTime= LocalDateTime.now();
@@ -286,6 +286,5 @@ public class ChatViewController implements Initializable {
             new Sub_ClientHandlerChat(this, vbox_messages, button_send, tf_message,btnCloseConnect,tfPartnerID).start();
             subClientHandlerChatCreated = true;
         }
-
     }
 }

@@ -1,9 +1,7 @@
 package Client;
 
 
-
-
-import Sub_Server .Sub_server;
+import Sub_Server.Sub_server;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -26,11 +24,13 @@ public class StartController implements Initializable {
     private DataInputStream in;
     private DataOutputStream out;
     private Sub_server sub_server = null;
-    private RemoteDesktop controller = null ;
+    private RemoteDesktop controller = null;
 
     private ChatViewController controllerChat = null;
 
-    private TransferFileController controllerFile= null;
+    private TransferFileController controllerFile = null;
+
+    private VideoCall controllerVideo = null;
 
 
     private Node content;
@@ -38,15 +38,17 @@ public class StartController implements Initializable {
     private Node remoteContent;
     private Node chatContent;
     private Node fileContent;
+    private Node videoContent;
     private FXMLLoader remoteLoader = new FXMLLoader(getClass().getResource("RemoteDesktop.fxml"));
-    private FXMLLoader chatLoader   = new FXMLLoader(getClass().getResource("Chat.fxml"));
-    private FXMLLoader fileLoader  =  new FXMLLoader(getClass().getResource("TransferFile.fxml"));
+    private FXMLLoader chatLoader = new FXMLLoader(getClass().getResource("Chat.fxml"));
+    private FXMLLoader fileLoader = new FXMLLoader(getClass().getResource("TransferFile.fxml"));
+    private FXMLLoader videoLoader = new FXMLLoader(getClass().getResource("VideoCall.fxml"));
 
 
     public StackPane contentArea;
 
 
-    public void  setClientSocket(Socket clientSocket, DataInputStream in, DataOutputStream out, Sub_server sub_server) {
+    public void setClientSocket(Socket clientSocket, DataInputStream in, DataOutputStream out, Sub_server sub_server) {
         this.sub_server = sub_server;
         this.clientSocket = clientSocket;
         this.in = in;
@@ -60,6 +62,7 @@ public class StartController implements Initializable {
             remoteContent = remoteLoader.load();
             chatContent = chatLoader.load();
             fileContent = fileLoader.load();
+            videoContent = videoLoader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -89,21 +92,31 @@ public class StartController implements Initializable {
         controller.setSocketClient(clientSocket, out, in, sub_server);
     }
 
-    public void ChatPage(MouseEvent mouseEvent){
+    public void ChatPage(MouseEvent mouseEvent) {
 
-        loader= chatLoader;
-        content= chatContent;
+        loader = chatLoader;
+        content = chatContent;
         contentArea.getChildren().setAll(content);
         if (controllerChat == null) controllerChat = loader.getController();
         controllerChat.setValue();
     }
 
-    public void TransferPage(MouseEvent mouseEvent){
-        loader= fileLoader;
-        content= fileContent;
+    public void VideoCall(MouseEvent mouseEvent) {
+        loader = videoLoader;
+        content = videoContent;
         contentArea.getChildren().setAll(content);
-        if(controllerFile == null) controllerFile = loader.getController();
+        if (controllerVideo == null) controllerVideo = loader.getController();
+        controllerVideo.setValue();
+        controllerVideo.initialize();
+    }
+
+    public void TransferPage(MouseEvent mouseEvent) {
+        loader = fileLoader;
+        content = fileContent;
+        contentArea.getChildren().setAll(content);
+        if (controllerFile == null) controllerFile = loader.getController();
         controllerFile.setValue();
+
     }
 
 
@@ -114,7 +127,6 @@ public class StartController implements Initializable {
 
         return String.valueOf(randomNumber);
     }
-
 
 
     public void HomePage(MouseEvent mouseEvent) {
@@ -129,6 +141,7 @@ public class StartController implements Initializable {
         }
         contentArea.getChildren().setAll(content);
     }
+
     public void ExitButton(MouseEvent mouseEvent) {
 
         try {
@@ -140,10 +153,13 @@ public class StartController implements Initializable {
         }
         System.exit(0);
     }
+
     public void MinimizeButton(MouseEvent mouseEvent) {
         // Thu nhỏ cửa sổ
         Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         stage.setIconified(true); // Thu nhỏ cửa sổ
     }
+
+
 }
 

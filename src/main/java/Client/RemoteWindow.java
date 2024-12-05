@@ -77,8 +77,6 @@ public class RemoteWindow extends Thread{
             e.printStackTrace();
         }
 
-
-
         new ReceivingScreen(in, imageView, borderPane);
         new SendEvents(socket, borderPane, width, height, scene, imageView);
     }
